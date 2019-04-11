@@ -20,29 +20,62 @@ function findFunc(){
 	console.log(myfile.value);
 	if(myfile.length != 0){
 		var results = document.getElementById("Output");
-		results.innerHTML = "Results: <br>";
-		var fr = new FileReader();
-		var temp = ""
-		fr.onload = function(e){
-			var result = JSON.parse(e.target.result);
-			var formatted = JSON.stringify(result, null, 2);
-			temp += formatted;
-			temp = JSON.parse(temp);
-			var hey = formatted.substring(formatted.indexOf("["), formatted.indexOf("]")+1);
-			hey = JSON.parse(hey);
-			//results.innerHTML+= formatted + "<br>";
-			var i = 0;
-			var n = hey.length;
-			while(i < n){
-			results.innerHTML+= hey[i].title + "<br>" + hey[i].url + "<br>" + hey[i].description + "<br> <br>";
+		results.innerHTML += "Results: <br>";
+		var i = 0;
+		var n = myfile.length;
+		while( i < n){
+			var file = myfile[i];
+			console.log(getExtension(file.name));
+			if(getExtension(file.name) == "json") readJSON(myfile, i);
+			//else if(getExtension(file.name) == "json") readJSON(myfile, i);
+			//else if(getExtension(file.name) == "json") readJSON(myfile, i);
+			else fileNotAccepted(getExtension(file.name));
 			i++;
 			}
-		}
-		fr.readAsText(myfile.item(0)); 
 		}
 		else{
 			document.getElementById("Output").innerHTML = "No File Specified";
 		}
+}
+
+function getExtension(filename){
+	return filename.split('.').pop();
+}
+
+function fileNotAccepted(filetype){
+	var results = document.getElementById("Output");
+	results.innerHTML += "File format of " + filetype + " is not able to be read. <br>";
+}
+
+function readJSON(myfile, index, textArea){
+	var fr = new FileReader();
+	var finalresult = "";
+	var temp = "";
+	var answer = document.getElementById("Output");
+	fr.onload = function(e){
+			var result = JSON.parse(e.target.result);
+			var formatted = JSON.stringify(result, null, 2);
+			formatted = formatted.substring(formatted.indexOf("["),formatted.indexOf("]")+1);
+			//console.log("look here" + formatted);
+			temp += formatted;
+			temp = JSON.parse(temp);
+			var hey = formatted.substring(formatted.indexOf("["), formatted.indexOf("]")+1);
+			
+			hey = JSON.parse(formatted);
+			console.log(hey);
+			var i = 0;
+			var n = hey.length;
+			//console.log(i+ "and" +n);
+			while(i < n){
+			var variable = hey[i].title + "<br>" + hey[i].url + "<br>" + hey[i].description + "<br> <br>";
+			//console.log(variable);
+			finalresult += variable;
+			i++;
+			}
+			answer.innerHTML += finalresult;
+		}
+	fr.readAsText(myfile.item(index));
+	
 }
 
 </script>
