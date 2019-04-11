@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<p id = "search">
+
+<h1><label for="file">Input file for processing: </label></h1>
+<input type="file"
+       id="file" name="file"
+       accept=".json, .csv, .xml" />
+	   <button id = "btn">Search</button>
+	   <p id = "Output"> </p>
+</p>
+<br></br>
+<script>
+document.getElementById("btn").addEventListener("click", findFunc);
+function findFunc(){
+	myfile = document.getElementById("file").files;
+	console.log(myfile.value);
+	if(myfile.length != 0){
+		var results = document.getElementById("Output");
+		results.innerHTML = "Results: <br>";
+		var fr = new FileReader();
+		var temp = ""
+		fr.onload = function(e){
+			var result = JSON.parse(e.target.result);
+			var formatted = JSON.stringify(result, null, 2);
+			temp += formatted;
+			temp = JSON.parse(temp);
+			var hey = formatted.substring(formatted.indexOf("["), formatted.indexOf("]")+1);
+			hey = JSON.parse(hey);
+			//results.innerHTML+= formatted + "<br>";
+			var i = 0;
+			var n = hey.length;
+			while(i < n){
+			results.innerHTML+= hey[i].title + "<br>" + hey[i].url + "<br>" + hey[i].description + "<br> <br>";
+			i++;
+			}
+		}
+		fr.readAsText(myfile.item(0)); 
+		}
+		else{
+			document.getElementById("Output").innerHTML = "No File Specified";
+		}
+}
+
+</script>
+</head>
+<body>
+
+
+<div></div>
+
+</body>
+</html>
