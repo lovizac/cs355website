@@ -1,11 +1,64 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="style.css">
-<title> Phase 2 </title>
-<h1>Search Engine</h1>
+<head>
+  <link rel="stylesheet" href="homepage.css" /> 
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Fixed Search Results</title>
+  </head>
 <body>
-  <input type="text" placeholder="Pizza">
-   <button id ="button" onclick="window.location.href = 'pizza.html';">Search</button>
+
+<div class="nav-bar">
+  <ul class="nav-menu">
+    <li><a href="#">Course ▾</a>
+		<ul>
+			<li><a href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019/">Zybooks</a></li>
+		</ul>
+    <li><a href="#">Search ▾</a>
+      <ul>
+        <li><a href="phase2.html">Phase 2</a></li>
+        <li><a href="phase3.html">Phase 3</a></li>
+        <li><a href="phase4.html">Phase 4</a></li>
+		<li><a href="phase5.html">Phase 5</a></li>
+      </ul>
+	  <li><a href="#">Browser ▾</a>
+		<ul>
+			<li><a href="browser.html">Browser Info</a></li>
+		</ul>
+	  <li><a href="#">About ▾</a>
+	  <ul>
+			<li><a href="about.html">Website Creator</a></li>
+		</ul>
+  </ul>
+ </div>
+  
+ <h1 style="text-align: center;">Fixed Search Engine</h1>
+<input type="text" placeholder="Pizza">
+<style>
+a.button4{
+ display:inline-block;
+ padding:0.3em 1.2em;
+ margin:0 0.1em 0.1em 0;
+ border:0.16em solid rgba(255,255,255,0);
+ border-radius:2em;
+ box-sizing: border-box;
+ text-decoration:none;
+ font-family:'Roboto',sans-serif;
+ font-weight:300;
+ color:#FFFFFF;
+ text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+ text-align:center;
+ transition: all 0.2s;
+}
+a.button4:hover{
+ border-color: rgba(255,255,255,1);
+}
+@media all and (max-width:30em){
+ a.button4{
+  display:block;
+  margin:0.2em auto;
+ }
+}
+</style>
+<a href="pizza.html" class="button4" style="background-color:#4e9af1">Search</a>
 </body>
 </html>
