@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="style.css">
-<title> Browser Info </title>
-<h1> Browser Info</h1>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Browser Info</title>
+  <link rel="stylesheet" href="homepage.css" />
+</head>
 <body>
-	<p id="demo"></p>
 
-	<script>
-	document.getElementById("demo").innerHTML =
-	"navigator.appName is " + navigator.appName;
+<div class="nav-bar">
+  <ul class="nav-menu">
+    <li><a href="#">Course ▾</a>
+		<ul>
+			<li><a href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019/">Zybooks</a></li>
+		</ul>
+    <li><a href="#">Search ▾</a>
+      <ul>
+        <li><a href="phase2.html">Phase 2</a></li>
+        <li><a href="phase3.html">Phase 3</a></li>
+        <li><a href="phase4.html">Phase 4</a></li>
+		<li><a href="phase5.html">Phase 5</a></li>
+      </ul>
+	  <li><a href="#">Browser ▾</a>
+		<ul>
+			<li><a href="browser.html">Browser Info</a></li>
+			<li><a href="location.html">Location</a></li>
+		</ul>
+	  <li><a href="#">About ▾</a>
+	  <ul>
+			<li><a href="about.html">Website Creator</a></li>
+		</ul>
+  </ul>
+</div>
+
+	<h1 style="text-align: center;">Browser Info</h1>
+	<p id="Window"><strong>Browser Information: </strong><br> </p>
+	<p id="Location"><strong>Location Information: </strong><br> </p>
+	<p id="Geolocation"><strong>Geolocation Information</strong><br></p>
+	<script src="browser.js">
 	</script>
-	
-	<p id="code"></p>
-
-	<script>
-	document.getElementById("code").innerHTML =
-	"navigator.appCodeName is " + navigator.appCodeName;
-	</script>
-	
-	<p id="product"></p>
-
-	<script>
-	document.getElementById("product").innerHTML =
-	"navigator.product is " + navigator.product;
-	</script>
-	
-	<p id="version"></p>
-
-	<script>
-	document.getElementById("version").innerHTML = navigator.appVersion;
-	</script
-	
-	<p id="platform"></p>
-
-	<script>
-	document.getElementById("platform").innerHTML = navigator.platform;
-	</script>
-	
 </body>
 </html>

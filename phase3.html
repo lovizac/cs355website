@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
-<p id = "search">
-<h1><label for="file">Choose a file</label></h1>
-<input type="file"
-       id="file" name="file"
-       accept=".json", ".xml">
-</p>
-<br></br>
-<script>
-var txt = '{"name":"John", "age":30, "city":"New York"}'
-var obj = JSON.parse(txt);
-document.getElementById("demo").innerHTML = obj.name + ", " + obj.age;
-</script>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <title>Search Engine</title>
+  <script src="selector.js"></script>
+  <script src="writefunctions.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="homepage.css" />
+
 </head>
 <body>
 
-<button>Search</button>
+<div class="nav-bar">
+  <ul class="nav-menu">
+    <li><a href="#">Course ▾</a>
+		<ul>
+			<li><a href="https://learn.zybooks.com/zybook/CUNYCSCI355TeitelmanSpring2019/">Zybooks</a></li>
+		</ul>
+    <li><a href="#">Search ▾</a>
+      <ul>
+        <li><a href="phase2.html">Phase 2</a></li>
+        <li><a href="phase3.html">Phase 3</a></li>
+        <li><a href="phase4.html">Phase 4</a></li>
+		<li><a href="phase5.html">Phase 5</a></li>
+      </ul>
+	  <li><a href="#">Browser ▾</a>
+		<ul>
+			<li><a href="browser.html">Browser Info</a></li>
+			<li><a href="location.html">Location</a></li>
+		</ul>
+	  <li><a href="#">About ▾</a>
+	  <ul>
+			<li><a href="about.html">Website Creator</a></li>
+		</ul>
+  </ul>
+</div>
 
-<div></div>
+<div id="uploadsection">
+  <p>Select file to read: </p>
+  <input type="file" id="upfile" accept=".csv,.json,.xml">
+</div>
+<div class="results">
+</div>
+<div class="selectors">
+  <button type="button" onclick="selectAll()">Select All</button>
+  <button type="button" onclick="deselectAll()">Deselect All</button>
+</div>
+<div class="save">
+  <button type="button" onclick="writeJSON()">Export JSON</button>
+  <button type="button" onclick="writeCSV()">Export CSV</button>
+  <button type="button" onclick="writeXML()">Export XML</button>
+  <br><br>
+<a style="width: fit-content;" href="" id="a" download>Download file</a>
+</div>
+<script src="printandparse.js"></script>
 
 </body>
 </html>
