@@ -13,6 +13,7 @@ function writeJSON() {
 	    resultsObject["Result"].push(result);
 	}
     }
+	document.getElementById("a").style.visibility = "visible";
     download(JSON.stringify(resultsObject), name, 'text/plain');
 }
 
@@ -34,6 +35,7 @@ function writeCSV() {
         }
     }
     result = result.trim();
+	document.getElementById("a").style.visibility = "visible";
     download(result, name, 'text/plain');
 }
 
@@ -57,6 +59,7 @@ function writeXML() {
         }
     }
     result += "</results>";
+	document.getElementById("a").style.visibility = "visible";
     download(result, name, 'text/plain');
 }
 
